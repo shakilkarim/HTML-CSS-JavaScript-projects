@@ -24,20 +24,23 @@ const imgEl = document.querySelector("img");
 const textEl = document.querySelector(".text");
 const userName = document.querySelector(".username");
 
+let i = 0;
+
+//swap
+
 function slideTestimonial() {
-  for (let i = 0; i < testimonials.length; i++) {
-    const { name, photoUrl, text } = testimonials[i];
-    imgEl.src = photoUrl;
-    textEl.innerText = text;
-    userName.innerText = name;
+  const { name, photoUrl, text } = testimonials[i];
+  imgEl.src = photoUrl;
+  textEl.innerText = text;
+  userName.innerText = name;
+
+  i++;
+  if (i === testimonials.length) {
+    i = 0;
   }
 
   setTimeout(() => {
     slideTestimonial();
-  }, 2000);
-
-  if (i === testimonials.length) {
-    i = 0;
-  }
+  }, 3000);
 }
 slideTestimonial();
